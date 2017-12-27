@@ -24,7 +24,7 @@ eureka:
         prefer-ip-address: true
     client:
         service-url:
-            defaultZone: http://admin:${jhipster.registry.password}@localhost:8761/eureka/
+            defaultZone: http://admin:${jhipster.registry.password}@172.16.64.141:8761/eureka/
 
 spring:
     devtools:
@@ -34,9 +34,9 @@ spring:
             enabled: false
     datasource:
         type: com.zaxxer.hikari.HikariDataSource
-        url: jdbc:mysql://localhost:3306/serviceProvider?useUnicode=true&characterEncoding=utf8&useSSL=false
-        username: root
-        password:
+        url: jdbc:mysql://172.16.64.141:3306/service-provider?useUnicode=true&characterEncoding=utf8&useSSL=false
+        username: provider
+        password: provider123!
         hikari:
             data-source-properties:
                 cachePrepStmts: true
@@ -118,8 +118,8 @@ jhipster:
                 url:
     security:
         client-authorization:
-            access-token-uri: http://../uaa/oauth/token
-            token-service-id: ../uaa
+            access-token-uri: http://uaa/oauth/token
+            token-service-id: uaa
             client-id: internal
             client-secret: internal
     mail: # specific JHipster mail property, for standard properties see MailProperties
@@ -150,7 +150,7 @@ jhipster:
 
 oauth2:
     signature-verification:
-        public-key-endpoint-uri: http://../uaa/oauth/token_key
+        public-key-endpoint-uri: http://uaa/oauth/token_key
         #ttl for public keys to verify JWT tokens (in ms)
         ttl: 3600000
         #max. rate at which public keys will be fetched (in ms)
