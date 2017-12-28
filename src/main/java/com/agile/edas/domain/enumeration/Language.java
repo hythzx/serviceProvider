@@ -1,0 +1,8 @@
+package com.agile.edas.domain.enumeration;
+
+/**
+ * The Language enumeration.
+ */
+public enum Language {
+    FRENCH, ENGLISH, SPANISH
+}
